@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        #menu_control{
+            position: absolute;
+            opacity: 0;
+        }
+        .header{
+            height: 50px;
+            background-color: #ccc;
+            position: relative;   
+        }
+        .logo{
+            width: 60px;
+            height: 40px;
+            margin-left: 10px;
+            
+        }
+        .logo img{
+            vertical-align:middle;
+            margin-top: 5px;
+        }
+        nav{
+            background-color: #ccc;
+            position:absolute;
+            top: 50px;
+            left: -100%;
+            transition: .5s;
+            width: 40%;
+            height: auto;
+            margin-top: 165px;
+        }
+        nav a{
+            display:block;
+            text-decoration: none;
+            color: black;
+            padding: 10px 10px 20px 20px;
+            border-bottom: 1px solid black;
+        }
+        nav a:hover{
+            background-color: #fa0;
+        }
+        .banner img{
+            width: 100%;
+            height: 165px;
+        }
+        .menu_btn{
+            width: 40px;
+            height: 40px;
+            background-color: aqua;
+            position: absolute;
+            top: 5px;
+            right: 10px;
+        }
+        .menu_btn a{
+            opacity: 0;
+        }
+        .menu_btn::before{
+            content: '';
+            position: absolute;
+            height: 2px;
+            width: 20px;
+            left: 10px;
+            background-color: black;
+            top: 0;   
+            bottom: 0;
+            margin: auto;
+            /* 垂直置中 */
+            box-shadow: 0px 8px 0px black,0px -8px 0px black;
+            /* 由一條線變成三條線  */
+        }
+        #menu_control:checked ~ .header nav{
+            left: 0;
+            /* 往前移動 */
+        }
+        .path{
+            display: flex;
+        }
+        .path li{
+            padding: 4px 8px;
+            list-style-type: none;
+            position: relative;
+            right: -60%;
+        }
+        .path li a{
+            color: #aaa;
+            text-decoration: none;
+            font-size: 14px;
+        }
+        .path li + li::before{
+            content: '/';
+            color: blueviolet;
+            left: 0;
+            position: absolute;
+        }
+        .path .path1{
+            color: red;
+        }
+        .about .wrap{
+            display: flex;
+        }
+        .wrap .item{
+            width: 300px;
+            margin: 0 10px;
+            text-align: center;
+        }
+        .about > h2{
+            width: 100%;
+            text-align: center;
+        }
+        .about > p{
+            text-align: center;
+            padding-bottom: 10px;
+        }
+        .item img{
+                width: 100px;
+                height: 100px;
+        }
+        .container{
+                position: absolute;
+                line-height: 25px;
+                z-index: -1;
+        }
+        @media screen and (min-width:768px){
+            /* 桌機版面 */
+            .menu_btn{
+                display: none;
+            }
+            .header{
+                display: flex;
+                justify-content: space-between;
+                background-color: #ccc;
+                align-items: center;
+            }
+            .logo img{
+                vertical-align: top;
+                margin-top: 0px;
+            }
+            nav{
+                position: relative;
+                display: flex;
+                left: 0;
+                width: auto;
+                top: 0;
+                background-color:transparent;
+                margin-top: 0px;
+            }
+            nav a{
+                border-bottom: none;
+            }
+            nav a:hover{
+                margin-top: -5px;
+                background-color: #fa0;
+            }
+            .banner img{
+                height: 300px;
+            }
+            .path li{
+                right: 0;
+            }
+            .about p{
+                width: 960px;
+                margin: auto;
+            }
+            .about .wrap{
+                padding-top: 40px;
+            }
+            .about .wrap .item{
+                width: 360px;
+                margin: auto;
+            }
+            .item img{
+                width: 200px;
+                height: 200px;
+            }
+            .item > h3{
+                font-size: 30px;
+            }
+            .item p{
+                width: 360px;
+                margin: auto;
+            }
+        }
+    </style>
+</head>
+<body>
+    <input type="checkbox" name="" id="menu_control">
+    <div class="header">
+        <h1 class="logo">
+            <img src="https://picsum.photos/80/40?random=1" alt="">
+        </h1>
+        <label for="menu_control" class="menu_btn">
+            <a>選單</a>
+        </label>
+        <nav>
+            <a href="#">留言區</a>
+            <a href="#">註冊</a>
+            <a href="#">登入</a>
+        </nav>
+    </div>
+    <div class="banner">
+        <img src="https://picsum.photos/1000/165?random=1" alt="">
+    </div>
+    <ul class="path">
+        <li><a href="#" class="path1">首頁</a></li>
+        <li><a href="#" class="path2">首頁</a></li>
+        <li><a href="#" class="path3">首頁</a></li>
+    </ul>
+    <div class="about">
+        <h2>關於</h2>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Porro corporis magnam beatae necessitatibus architecto dicta, quia, inventore quisquam iste nulla aliquid in a labore accusantium deleniti dolorum tempore? Aliquam, nihil!</p>
+        <div class="wrap">
+            <div class="item">
+                <img src="https://picsum.photos/200/200?random=2" alt="">
+                <h3>title</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod est dolore ipsa odio recusandae, illo voluptatum, qui nulla possimus magni maiores aperiam mollitia illum obcaecati minima distinctio eum? Deleniti, dolor!</p>
+            </div>
+            <div class="item">
+                <img src="https://picsum.photos/200/200?random=3" alt="">
+                <h3>title</h3>
+                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Quod est dolore ipsa odio recusandae, illo voluptatum, qui nulla possimus magni maiores aperiam mollitia illum obcaecati minima distinctio eum? Deleniti, dolor!</p>
+            </div>
+            
+        </div>
+    </div>
+    <div class="container">
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p><p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Hic voluptatem, animi commodi nemo ratione aliquam. Id quos quidem perspiciatis, quo consequatur voluptates explicabo qui repudiandae cum ut, eos rem deleniti!</p>
+    </div>
+
+</body>
+</html>
